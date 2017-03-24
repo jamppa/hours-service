@@ -1,3 +1,3 @@
-# Hours API
+# Hours Service
 
-Public HTTP API for Hours - hour tracking system for my company (Bytecraft)
+Hours Service - service for handling commands and queries of Hours app
