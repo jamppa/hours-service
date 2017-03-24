@@ -1,0 +1,21 @@
+version: '2'
+services:
+  shell:
+    build: .
+    command: /bin/bash
+    volumes:
+      - ../:/app
+      - ~/.m2/:/home/hours/.m2/
+
+  broker:
+    image: spotify/kafka
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    environment:
+      - TOPICS=pending-cmds,accepted-cmds,failed-cmds
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
