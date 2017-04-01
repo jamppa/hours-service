@@ -1,5 +1,8 @@
 (ns hours-service.core
+  (:require
+    [hours-service.system :as system])
   (:gen-class))
 
 (defn -main [& args]
-  (println "this is hours service"))
+  (println ";; Starting hours-service")
+  (system/start))
