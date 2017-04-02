@@ -6,6 +6,10 @@
 
 (defmulti handle-command (fn [command app] (:type command)))
 
+(defmethod handle-command :default
+  [command app]
+    (println command))
+
 (defn- handle-record [app record]
   (->
     (.value record)
