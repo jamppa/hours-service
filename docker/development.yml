@@ -13,7 +13,7 @@ services:
       - "2181:2181"
       - "9092:9092"
     environment:
-      - TOPICS=pending-cmds,accepted-cmds,failed-cmds
+      - TOPICS=pending-cmds,succeed-cmds,failed-cmds
 
   db:
     image: mongo
