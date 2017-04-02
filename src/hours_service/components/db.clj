@@ -13,11 +13,10 @@
         (merge component {:db db :connection conn})))
 
   (stop [component]
-    (println "Stopping DB")
+    (println ";; Stopping DB")
     (let [conn (:connection component)]
       (mg/disconnect conn)
       (merge component {:db nil :connection nil})))
-
 )
 
 (defn new-db []
