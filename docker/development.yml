@@ -1,11 +1,14 @@
-version: '2'
+version: '3'
 services:
-  shell:
+
+  hours:
     build: .
-    command: /bin/bash
     volumes:
       - ../:/app
       - ~/.m2/:/home/hours/.m2/
+    environment:
+      - DB_URL=mongodb://db/hours
+      - BROKER_HOST=broker:9092
 
   broker:
     image: spotify/kafka
@@ -14,7 +17,6 @@ services:
       - "9092:9092"
     environment:
       - TOPICS=pending-cmds,succeed-cmds,failed-cmds
-
   db:
     image: mongo
     ports:

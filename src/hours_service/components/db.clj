@@ -8,9 +8,9 @@
 
   (start [component]
     (println ";; Starting DB")
-    (let [conn (mg/connect (get-in env [:config :db]))
-          db (mg/get-db conn "hours")]
-        (merge component {:db db :connection conn})))
+    (let [uri (get-in env [:config :db :url])
+          {:keys [conn db]} (mg/connect-via-uri uri)]
+      (merge component {:db db :connection conn})))
 
   (stop [component]
     (println ";; Stopping DB")

@@ -8,6 +8,7 @@
 
 (defmethod handle-command :default
   [command app]
+    (println "no command handler found!")
     (println command))
 
 (defn- handle-record [app record]

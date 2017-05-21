@@ -8,7 +8,8 @@
                  [com.stuartsierra/component "0.3.2"]
                  [cheshire "5.7.0"]
                  [slingshot "0.12.2"]
-                 [com.novemberain/monger "3.1.0"]]
+                 [com.novemberain/monger "3.1.0"]
+                 [environ "1.1.0"]]
   :main ^:skip-aot hours-service.core
   :target-path "target/%s"
   :profiles

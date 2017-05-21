@@ -5,7 +5,8 @@
     [hours-service.components.db :refer [new-db]]
     [hours-service.components.broker :refer [new-broker]]
     [hours-service.components.app :refer [new-app]]
-    [hours-service.components.handler :refer [new-handler]]))
+    [hours-service.components.handler :refer [new-handler]]
+    [hours-service.customers.handler]))
 
 (defn system []
   (component/system-map

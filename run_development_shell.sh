@@ -1,1 +1,1 @@
-docker-compose -f docker/development.yml -p hours_api run --rm --service-ports --name shell shell
+docker-compose -f docker/development.yml run --rm --service-ports --name hours-shell hours /bin/bash
