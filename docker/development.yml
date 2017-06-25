@@ -8,6 +8,7 @@ services:
       - ~/.m2/:/home/hours/.m2/
     environment:
       - DB_URL=mongodb://db/hours
+      - TEST_DB_URL=mongodb://db/hours_test
       - BROKER_HOST=broker:9092
 
   broker:
