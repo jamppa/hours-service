@@ -10,13 +10,12 @@
     (println ";; Starting DB")
     (let [uri (get-in env [:config :db :url])
           {:keys [conn db]} (mg/connect-via-uri uri)]
-      (merge component {:db db :connection conn})))
+      (assoc component :db db :conn conn)))
 
   (stop [component]
     (println ";; Stopping DB")
-    (let [conn (:connection component)]
-      (mg/disconnect conn)
-      (merge component {:db nil :connection nil})))
+    (let [conn (:conn component)]
+      (mg/disconnect conn)))
 )
 
 (defn new-db []

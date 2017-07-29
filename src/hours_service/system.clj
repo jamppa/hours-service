@@ -25,3 +25,6 @@
 
 (defn start [system]
   (component/start system))
+
+(defn stop [system]
+  (component/stop system))
