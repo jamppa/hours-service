@@ -1,7 +1,9 @@
 (ns hours-service.components.db
   (:require
     [com.stuartsierra.component :as component]
-    [monger.core :as mg]))
+    [monger.core :as mg]
+    [monger.result :as mr]
+    [monger.collection :as mc]))
 
 (defrecord DB [env]
   component/Lifecycle
@@ -20,3 +22,8 @@
 
 (defn new-db []
   (DB. nil))
+
+(defn save [db coll obj]
+  (let [db (:db db)]
+    (-> (mc/insert db coll obj)
+        (mr/acknowledged?))))
