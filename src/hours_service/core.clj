@@ -5,4 +5,5 @@
 
 (defn -main [& args]
   (println ";; Starting hours-service")
-  (system/start (system/system-map)))
+  (system/init)
+  (system/start))
