@@ -20,10 +20,28 @@
       (mg/disconnect conn)))
 )
 
+
 (defn new-db []
   (DB. nil))
+
 
 (defn save [db coll obj]
   (let [db (:db db)]
     (-> (mc/insert db coll obj)
         (mr/acknowledged?))))
+
+
+(defn save-all [db coll objs]
+  (let [db (:db db)]
+    (-> (mc/insert-batch db coll objs)
+        (mr/acknowledged?))))
+
+
+(defn remove-all [db coll]
+  (let [db (:db db)]
+    (mc/remove db coll)))
+
+
+(defn find-one [db coll query]
+  (let [db (:db db)]
+    (mc/find-one-as-map db coll query)))
