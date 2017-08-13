@@ -9,19 +9,19 @@
   :business-id "1234567-8"})
 
 
-(fact "new valid customer contains the id"
+(fact "valid customer contains the id"
   (customer/new valid-customer-data) => (contains {:_id anything}))
 
 
-(fact "new valid customer contains the data"
+(fact "valid customer contains the data"
   (customer/new valid-customer-data) => (contains valid-customer-data))
 
 
-(fact "new created event contains type and the customer"
+(fact "customer created -event contains type and the customer"
   (customer/new-created fixtures/valid-customer) =>
     (contains {:type "customer-created" :data fixtures/valid-customer}))
 
 
-(fact "new creation failed event contains the type and the customer"
+(fact "customer creation failed -event contains the type and the customer"
   (customer/new-creation-failed fixtures/valid-customer) =>
     (contains {:type "customer-creation-failed" :data fixtures/valid-customer}))
