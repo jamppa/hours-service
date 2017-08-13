@@ -12,6 +12,10 @@
   (map->Customer (util/with-id customer-map)))
 
 
+(defn restore [customer-map]
+  (map->Customer customer-map))
+
+
 (defn new-created [customer]
   (->CustomerCreated "customer-created" customer))
 
