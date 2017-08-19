@@ -19,3 +19,8 @@
 (fact "finds customer by its business id"
   (repo/find-by-business-id (:db s/system) "1234567-8")
     => fixtures/valid-customer)
+
+
+(fact "does not find non-existing customer by its business-id"
+  (repo/find-by-business-id (:db s/system) "666666-6")
+    => nil)

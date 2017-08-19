@@ -14,6 +14,5 @@
   (if (save-to-collection db customer) customer nil))
 
 (defn find-by-business-id [db business-id]
-  (->
-    (DB/find-one db customer-collection {:business-id business-id})
-    (customer/restore)))
+  (when-let [customer-map (DB/find-one db customer-collection {:business-id business-id})]
+    (customer/restore customer-map)))
