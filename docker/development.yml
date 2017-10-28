@@ -10,6 +10,8 @@ services:
       - DB_URL=mongodb://db/hours
       - TEST_DB_URL=mongodb://db/hours_test
       - BROKER_HOST=broker:9092
+    container_name: hours-service
+    command: lein run
 
   broker:
     image: spotify/kafka
@@ -18,8 +20,10 @@ services:
       - "9092:9092"
     environment:
       - TOPICS=pending-cmds,succeed-cmds,failed-cmds
+    container_name: broker
 
   db:
     image: mongo
     ports:
       - "27017:27017"
+    container_name: db
