@@ -25,3 +25,6 @@
 (fact "finds customer by its name"
   (repo/find-by-name (:db s/system) "Firma Oy Ab")
     => fixtures/valid-customer)
+
+(fact "does not find non-existing customer by its name"
+  (repo/find-by-name (:db s/system) "Some Weird Oy") => nil)
