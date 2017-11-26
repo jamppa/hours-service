@@ -18,10 +18,10 @@
 
 
 (fact "customer created -event contains type and the customer"
-  (customer/new-created fixtures/valid-customer) =>
+  (customer/new-created-event fixtures/valid-customer) =>
     (contains {:type "customer-created" :data fixtures/valid-customer}))
 
 
 (fact "customer creation failed -event contains the type and the customer"
-  (customer/new-creation-failed fixtures/valid-customer) =>
+  (customer/new-creation-failed-event fixtures/valid-customer) =>
     (contains {:type "customer-creation-failed" :data fixtures/valid-customer}))
