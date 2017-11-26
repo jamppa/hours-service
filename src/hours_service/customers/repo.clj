@@ -19,3 +19,7 @@
 (defn find-by-business-id [db id]
   (when-let [c-map (find-one-from-collection db {:business-id id})]
     (customer/restore c-map)))
+
+(defn find-by-name [db name]
+  (when-let [c-map (find-one-from-collection db {:name name})]
+    (customer/restore c-map)))
