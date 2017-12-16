@@ -2,7 +2,6 @@
   (:require
     [hours-service.util :as util]))
 
-
 (defrecord Customer [_id name business-id])
 (defrecord CustomerCreated [type data])
 (defrecord CustomerCreationFailed [type data])

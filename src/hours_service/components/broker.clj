@@ -1,7 +1,8 @@
 (ns hours-service.components.broker
   (:require
     [com.stuartsierra.component :as component]
-    [cheshire.core :as cheshire])
+    [cheshire.core :as cheshire]
+    [monger.json])
   (:import
     [org.apache.kafka.clients.producer KafkaProducer ProducerRecord]
     [org.apache.kafka.clients.consumer KafkaConsumer ConsumerRecord]))
