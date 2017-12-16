@@ -2,7 +2,7 @@
   :description "Hours Service - service for handling commands and queries of hours app"
   :url ""
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
+  :dependencies [[org.clojure/clojure "1.9.0"]
                  [compojure "1.5.1"]
                  [org.apache.kafka/kafka-clients "0.10.2.0"]
                  [com.stuartsierra/component "0.3.2"]
