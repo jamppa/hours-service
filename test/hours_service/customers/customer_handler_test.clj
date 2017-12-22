@@ -1,11 +1,11 @@
-(ns hours-service.customers.handler-test
+(ns hours-service.customers.customer-handler-test
   (:require
     [midje.sweet :refer :all]
     [hours-service.components.handler :as handler]
     [hours-service.components.broker :as broker]
     [hours-service.fixtures :as fixtures]
     [hours-service.system :as s]
-    [hours-service.customers.repo :as repo]))
+    [hours-service.customers.customer-repo :as repo]))
 
 (background
   (before :facts (do (s/init-test) (s/start) (fixtures/load-fixtures (:db s/system))))

@@ -1,9 +1,9 @@
-(ns hours-service.customers.handler
+(ns hours-service.customers.customer-handler
   (:require
     [hours-service.components.handler :as handler]
     [hours-service.components.broker :as broker]
     [hours-service.customers.customer :as customer]
-    [hours-service.customers.repo :as repo]))
+    [hours-service.customers.customer-repo :as repo]))
 
 (defn- customer-created [broker customer]
   (->> 

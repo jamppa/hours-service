@@ -1,4 +1,4 @@
-(ns hours-service.customers.repo
+(ns hours-service.customers.customer-repo
   (:require
     [monger.collection :as mc]
     [monger.result :as mr]
