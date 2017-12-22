@@ -15,5 +15,5 @@
 (defn new-created-event [customer]
   (->CustomerCreated "customer-created" customer))
 
-(defn new-creation-failed-event [customer]
-  (->CustomerCreationFailed "customer-creation-failed" customer))
+(defn new-creation-failed-event [reason]
+  (->CustomerCreationFailed "customer-creation-failed" reason))

@@ -14,6 +14,10 @@
 (fact "saves customer to repository"
   (repo/save (:db s/system) newly-customer) => newly-customer)
 
+(fact "throws when save fails to repository"
+  (repo/save (:db s/system) newly-customer) => anything
+  (repo/save (:db s/system) newly-customer) => (throws Exception))
+
 (fact "finds customer by its business id"
   (repo/find-by-business-id (:db s/system) "1234567-8")
     => fixtures/valid-customer)

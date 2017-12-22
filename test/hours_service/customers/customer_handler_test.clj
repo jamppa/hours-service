@@ -16,11 +16,17 @@
   :data {:name "Test Oy" :business-id "123456-7"}
 })
 
-(fact "handling create-customer command creates new customer to repository"
+(fact "creates new customer to repository"
   (handler/handle-command create-customer-cmd (:app s/system))
   (repo/find-by-name (:db s/system) "Test Oy") => (contains (:data create-customer-cmd)))
 
-(fact "handling create-customer command sends event to broker on successful creation"
+(fact "sends event to broker on successful creation"
   (handler/handle-command create-customer-cmd (:app s/system)) => anything
   (provided
     (broker/send-successful-event anything anything) => anything :times 1))
+
+(fact "sends failed event to broker when saving to repo fails"
+  (handler/handle-command create-customer-cmd (:app s/system)) => anything
+    (provided
+      (repo/save anything anything) => (throws Exception "save failed!")
+      (broker/send-failed-event anything anything) => anything :times 1))
